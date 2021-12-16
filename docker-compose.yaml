@@ -3,20 +3,20 @@ version: '2.1'
 
 volumes:
   # Postgres Data
-  boilerplate-api-mysql-data:
+  rentx-api-mysql-data:
     driver: local
 
   # Redis Data
-  boilerplate-api-redis-data:
+  rentx-api-redis-data:
     driver: local
 
 services:
   mysql:
     image: mysql:5.7
     restart: always
-    container_name: boilerplate-api-mysql
+    container_name: rentx-api-mysql
     volumes:
-      - boilerplate-api-mysql-data:/var/lib/mysql:Z
+      - rentx-api-mysql-data:/var/lib/mysql:Z
     ports:
       - '3307:3306'
     environment:
@@ -27,9 +27,9 @@ services:
 
   cache:
     image: redis:4.0
-    container_name: boilerplate-api-redis
+    container_name: rentx-api-redis
     command: --appendonly yes
     volumes:
-      - boilerplate-api-redis-data:/data
+      - rentx-api-redis-data:/data
     ports:
       - '6379:6379'

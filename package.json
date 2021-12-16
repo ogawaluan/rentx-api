@@ -1,7 +1,7 @@
 {
-  "name": "boilerplate-api",
+  "name": "rentx-api",
   "version": "1.0.0",
-  "description": "Boilerplate API using Express.js and TS",
+  "description": "Rent-X API using Express.js and TS",
   "main": "server.js",
   "keywords": [],
   "author": "",
