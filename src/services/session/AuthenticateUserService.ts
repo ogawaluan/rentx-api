@@ -21,20 +21,7 @@ class AuthenticateUserService {
 
     const user = await usersRepo.findOne({
       where: { email },
-      select: [
-        'id',
-        'name',
-        'email',
-        'image',
-        'password',
-        'temporaryPassword',
-        'facebookId',
-        'facebookImage',
-        'googleId',
-        'googleImage',
-        'appleId',
-        'createdAt',
-      ],
+      select: ['id', 'name', 'email', 'image', 'password', 'createdAt'],
       relations: ['role'],
     });
 
@@ -55,17 +42,12 @@ class AuthenticateUserService {
     const usersRepo: any = getRepository(User);
     const user = await AuthenticateUserService.getUserByEmail(email);
 
-    const isTemporaryPasswordIsEqual = await passwordsHelper.compareHashs(
-      user.temporaryPassword,
-      password
-    );
-
     const isPasswordsEqual = await passwordsHelper.compareHashs(
       user.password,
       password
     );
 
-    if (!isPasswordsEqual && !isTemporaryPasswordIsEqual) {
+    if (!isPasswordsEqual) {
       throw new AppError({
         type: AppErrorType.WRONG_EMAIL_PASSWORD,
         statusCode: 401,
@@ -75,13 +57,11 @@ class AuthenticateUserService {
     if (isPasswordsEqual) {
       await usersRepo.save({
         ...user,
-        temporaryPassword: null,
       });
     } else {
       await usersRepo.save({
         ...user,
-        password: user.temporaryPassword || user.password,
-        temporaryPassword: null,
+        password: user.password,
       });
     }
 

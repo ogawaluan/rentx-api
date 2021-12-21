@@ -4,6 +4,7 @@ import packageInfo from '../../package.json';
 import { ensureUserIsAuthenticated } from '../middlewares';
 import sessionRoutes from './session.routes';
 import usersRoutes from './users.routes';
+import vehiclesRoutes from './vehicles.routes';
 
 const routes = Router();
 
@@ -16,5 +17,6 @@ routes.use('/', sessionRoutes);
 
 routes.use(ensureUserIsAuthenticated);
 routes.use('/users', usersRoutes);
+routes.use('/vehicles', vehiclesRoutes);
 
 export default routes;
