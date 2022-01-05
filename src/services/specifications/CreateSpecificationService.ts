@@ -1,6 +1,6 @@
 import { getRepository } from 'typeorm';
 
-import Specification from '../../models/Specification';
+import { Specification } from '../../models';
 
 interface IRequest {
   vehicleId: string;

@@ -28,5 +28,17 @@ specificationsRoutes.post(
 );
 
 specificationsRoutes.get('/', specificationsController.index);
+specificationsRoutes.get('/:specificationId', specificationsController.show);
+
+specificationsRoutes.put(
+  '/:specificationId',
+  upload.single('icon'),
+  specificationsController.update
+);
+
+specificationsRoutes.delete(
+  '/:specificationId',
+  specificationsController.delete
+);
 
 export default specificationsRoutes;
