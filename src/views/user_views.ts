@@ -12,11 +12,6 @@ export interface IUserView {
     large: string;
     original: string;
   } | null;
-  facebookId?: string;
-  facebookImage?: string;
-  googleId?: string;
-  googleImage?: string;
-  appleId?: string;
   createdAt: Date;
 }
 
@@ -33,11 +28,6 @@ export const renderOne = (
   email: user.email,
   images: getUrlImages(userResizes, user.image),
   role: withRole ? user.role.name : undefined,
-  facebookId: user.facebookId,
-  facebookImage: user.facebookImage,
-  googleId: user.googleId,
-  googleImage: user.googleImage,
-  appleId: user.appleId,
   createdAt: user.createdAt,
 });
 

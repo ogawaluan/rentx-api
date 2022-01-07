@@ -3,6 +3,7 @@ import { Router } from 'express';
 import packageInfo from '../../package.json';
 import { ensureUserIsAuthenticated } from '../middlewares';
 import sessionRoutes from './session.routes';
+import specificationsRoutes from './specifications.routes';
 import usersRoutes from './users.routes';
 import vehiclesRoutes from './vehicles.routes';
 
@@ -15,6 +16,7 @@ routes.get('/ping', (_, response) => {
 
 routes.use('/', sessionRoutes);
 
+routes.use('/specifications', specificationsRoutes);
 routes.use(ensureUserIsAuthenticated);
 routes.use('/users', usersRoutes);
 routes.use('/vehicles', vehiclesRoutes);
