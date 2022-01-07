@@ -6,6 +6,10 @@ interface IRequest {
   name?: string;
   brand?: string;
   dailyValue?: number;
+  maximumSpeed?: number;
+  accelerationTime?: number;
+  horsePower?: number;
+  peopleCapacity?: number;
 }
 
 class UpdateVehicleService {

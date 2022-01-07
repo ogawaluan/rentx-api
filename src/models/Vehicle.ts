@@ -14,6 +14,18 @@ class Vehicle extends BaseModel {
   @Column()
   dailyValue: number;
 
+  @Column()
+  maximumSpeed: number;
+
+  @Column({ precision: 3, scale: 1 })
+  accelerationTime: number;
+
+  @Column()
+  horsePower: number;
+
+  @Column()
+  peopleCapacity: number;
+
   @DeleteDateColumn()
   deletedAt: Date;
 

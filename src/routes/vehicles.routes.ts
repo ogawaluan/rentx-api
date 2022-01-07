@@ -18,6 +18,10 @@ vehiclesRoutes.post(
       name: Joi.string().required(),
       brand: Joi.string().required(),
       dailyValue: Joi.number().required(),
+      maximumSpeed: Joi.number().required(),
+      accelerationTime: Joi.number().required(),
+      horsePower: Joi.number().required(),
+      peopleCapacity: Joi.number().required(),
     }),
   }),
   vehiclesController.create
@@ -50,6 +54,10 @@ vehiclesRoutes.put(
       name: Joi.string(),
       brand: Joi.string(),
       dailyValue: Joi.number(),
+      maximumSpeed: Joi.number().required(),
+      accelerationTime: Joi.number().required(),
+      horsePower: Joi.number().required(),
+      peopleCapacity: Joi.number().required(),
     }),
   }),
   vehiclesController.update

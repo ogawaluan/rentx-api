@@ -5,6 +5,10 @@ export interface IVehicleView {
   name: string;
   brand: string;
   dailyValue: number;
+  maximumSpeed: number;
+  accelerationTime: number;
+  horsePower: number;
+  peopleCapacity: number;
   createdAt: Date;
 }
 
@@ -13,6 +17,10 @@ export const renderOne = (vehicle: Vehicle): IVehicleView => ({
   name: vehicle.name,
   brand: vehicle.brand,
   dailyValue: vehicle.dailyValue,
+  maximumSpeed: vehicle.maximumSpeed,
+  accelerationTime: vehicle.accelerationTime,
+  horsePower: vehicle.horsePower,
+  peopleCapacity: vehicle.peopleCapacity,
   createdAt: vehicle.createdAt,
 });
 
